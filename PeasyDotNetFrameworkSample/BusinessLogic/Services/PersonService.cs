@@ -1,5 +1,7 @@
 ﻿using Peasy;
 using PeasyDotNetFrameworkSample.BusinessLogic.DTO;
+using PeasyDotNetFrameworkSample.Rules;
+using System.Collections.Generic;
 
 namespace PeasyDotNetFrameworkSample.BusinessLogic.Services
 {
@@ -7,6 +9,11 @@ namespace PeasyDotNetFrameworkSample.BusinessLogic.Services
     {
         public PersonService(IDataProxy<Person, int> dataProxy) : base(dataProxy)
         {
+        }
+
+        protected override IEnumerable<IRule> GetBusinessRulesForInsert(Person entity, ExecutionContext<Person> context)
+        {
+            yield return new PersonNameRule(entity.Name);
         }
     }
 }
