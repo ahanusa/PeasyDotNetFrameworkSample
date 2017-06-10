@@ -11,7 +11,7 @@ namespace PeasyDotNetFrameworkSample
         static void Main(string[] args)
         {
             var service = new PersonService(new PersonMockDataProxy());
-            var newPerson = new Person() { Name = "Fred Jones", City = "Madison" };
+            var newPerson = new Person() { Name = "Fred Jones", City = "Nowhere" };
             var insertResult = service.InsertCommand(newPerson).Execute();
             if (insertResult.Success)
             {
@@ -19,9 +19,10 @@ namespace PeasyDotNetFrameworkSample
             }
             else
             {
-                // This line will execute and print 'Name cannot be fred jones' 
+                // This line will execute and print 'Name cannot be fred jones' and 'Nowhere is not a city'
                 // Note that insertResult.Value will be NULL as PersonMockDataProxy.Insert did not execute due to failed rule
-                Debug.WriteLine(insertResult.Errors.First());
+                foreach (var error in insertResult.Errors)
+                    Debug.WriteLine(error);
             }
         }
     }
