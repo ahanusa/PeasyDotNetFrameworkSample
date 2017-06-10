@@ -14,6 +14,7 @@ namespace PeasyDotNetFrameworkSample.BusinessLogic.Services
         protected override IEnumerable<IRule> GetBusinessRulesForInsert(Person entity, ExecutionContext<Person> context)
         {
             yield return new PersonNameRule(entity.Name);
+            yield return new ValidCityRule(entity.City);
         }
     }
 }
