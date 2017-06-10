@@ -7,5 +7,5 @@
 You can clone the repo or download the project as a [zip](https://github.com/ahanusa/PeasyDotNetFrameworkSample/archive/master.zip).  
 
 Once downloaded:
-- Open the project in Visual Studio
+- Open the solution in Visual Studio
 - Run the project
