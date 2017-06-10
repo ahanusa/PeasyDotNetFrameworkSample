@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="BusinessLogic\DataProxies\PersonMockDataProxy.cs" />
     <Compile Include="BusinessLogic\DTO\Person.cs" />
+    <Compile Include="BusinessLogic\Services\PersonService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
